@@ -21,7 +21,7 @@ async function getFoodLink() {
     return links
 }
 
-async function scrapGiziRingkas(cheerioRootHTML) {
+function scrapGiziRingkas(cheerioRootHTML) {
     const $ = cheerioRootHTML
     const namaMakanan = $("h1").text()
     const giziRingkas = { namaMakanan }
@@ -53,14 +53,27 @@ function scrapGiziLengkap(cheerioRootHTML) {
     return giziLengkap
 }
 
+function scrapGambar(cheerioRootHTML){
+    const $ = cheerioRootHTML
+    let gambarLink = $('.factPanel table.generic td > a > img')
+    if (gambarLink.length <= 0) return ''
+    
+    gambarLink = gambarLink.eq(0).attr('src')
+    const pattern = '_sq.jpg'
+    gambarLink = gambarLink.replace(pattern,".jpg")
+    return gambarLink
+}
+
 async function scrapLengkapDanRingkas(index,subLink) {
     const fatsecret = "https://www.fatsecret.co.id"
 
     const fullLink = fatsecret + subLink
     const makananHTML = await getCheerioRoot(fullLink)
-    const dataRingkas = await scrapGiziRingkas(makananHTML)
-    const dataLengkap = await scrapGiziLengkap(makananHTML)
-    return { "id":String(index),...dataRingkas, ...dataLengkap }
+    const dataRingkas = scrapGiziRingkas(makananHTML)
+    const dataLengkap = scrapGiziLengkap(makananHTML)
+    const linkGambar = scrapGambar(makananHTML)
+    
+    return { "id":String(index), linkGambar,...dataRingkas, ...dataLengkap }
 }
 
 const request = []

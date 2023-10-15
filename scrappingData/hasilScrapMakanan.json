@@ -1,6 +1,7 @@
 [
   {
     "id": "0",
+    "linkGambar": "https://m.ftscrt.com/food/ee0f93f0-7bc9-42b6-865d-2c2ffa982310.jpg",
     "namaMakanan": "Cumi Goreng",
     "Kal": "12",
     "Lemak": "0,21g",
@@ -21,6 +22,7 @@
   },
   {
     "id": "1",
+    "linkGambar": "",
     "namaMakanan": "Cumi Kukus atau Rebus",
     "Kal": "78",
     "Lemak": "1,16g",
@@ -41,6 +43,7 @@
   },
   {
     "id": "2",
+    "linkGambar": "",
     "namaMakanan": "Cumi-cumi",
     "Kal": "92",
     "Lemak": "1,38g",
@@ -61,6 +64,7 @@
   },
   {
     "id": "3",
+    "linkGambar": "",
     "namaMakanan": "Gurita",
     "Kal": "82",
     "Lemak": "1,04g",
@@ -81,6 +85,7 @@
   },
   {
     "id": "4",
+    "linkGambar": "https://m.ftscrt.com/food/80885f96-3b9d-4278-aab8-374cab965e34.jpg",
     "namaMakanan": "Udang",
     "Kal": "7",
     "Lemak": "0,12g",
@@ -101,6 +106,7 @@
   },
   {
     "id": "5",
+    "linkGambar": "",
     "namaMakanan": "Lobster",
     "Kal": "114",
     "Lemak": "0,68g",
@@ -121,6 +127,7 @@
   },
   {
     "id": "6",
+    "linkGambar": "https://m.ftscrt.com/food/97231692-e37f-4506-81e9-e7edf0cd4aa2.jpg",
     "namaMakanan": "Kepiting",
     "Kal": "119",
     "Lemak": "2,08g",
@@ -141,6 +148,7 @@
   },
   {
     "id": "7",
+    "linkGambar": "",
     "namaMakanan": "Remis",
     "Kal": "9",
     "Lemak": "0,22g",
@@ -161,6 +169,7 @@
   },
   {
     "id": "8",
+    "linkGambar": "",
     "namaMakanan": "Gurita",
     "Kal": "82",
     "Lemak": "1,04g",
@@ -181,6 +190,7 @@
   },
   {
     "id": "9",
+    "linkGambar": "https://m.ftscrt.com/food/543f17d5-8328-4b43-a11f-7e1a7cf2e199.jpg",
     "namaMakanan": "Ikan",
     "Kal": "84",
     "Lemak": "0,92g",
@@ -201,6 +211,7 @@
   },
   {
     "id": "10",
+    "linkGambar": "https://m.ftscrt.com/food/22b47780-e9cd-498e-a8ae-7f298efa08b4.jpg",
     "namaMakanan": "Ikan Panggang",
     "Kal": "142",
     "Lemak": "3,89g",
@@ -221,6 +232,7 @@
   },
   {
     "id": "11",
+    "linkGambar": "https://m.ftscrt.com/food/49198d7f-8dfc-4e1f-be6e-aa38368a8f45.jpg",
     "namaMakanan": "Ikan Salmon Panggang",
     "Kal": "171",
     "Lemak": "7,56g",
@@ -241,6 +253,7 @@
   },
   {
     "id": "12",
+    "linkGambar": "",
     "namaMakanan": "Nila (Ikan)",
     "Kal": "96",
     "Lemak": "1,7g",
@@ -261,6 +274,7 @@
   },
   {
     "id": "13",
+    "linkGambar": "",
     "namaMakanan": "Kakap (Ikan) (Spesies Campuran)",
     "Kal": "100",
     "Lemak": "1,34g",
@@ -281,6 +295,7 @@
   },
   {
     "id": "14",
+    "linkGambar": "",
     "namaMakanan": "Ikan Kembung",
     "Kal": "167",
     "Lemak": "9,36g",
@@ -301,6 +316,7 @@
   },
   {
     "id": "15",
+    "linkGambar": "",
     "namaMakanan": "Ikan Kembung Atlantik",
     "Kal": "230",
     "Lemak": "15,56g",
@@ -321,6 +337,7 @@
   },
   {
     "id": "16",
+    "linkGambar": "",
     "namaMakanan": "Ikan Lele",
     "Kal": "204",
     "Lemak": "12,35g",
@@ -341,6 +358,7 @@
   },
   {
     "id": "17",
+    "linkGambar": "",
     "namaMakanan": "Ikan Lele Panggang",
     "Kal": "116",
     "Lemak": "7,38g",
@@ -361,6 +379,7 @@
   },
   {
     "id": "18",
+    "linkGambar": "",
     "namaMakanan": "Ikan Salmon",
     "Kal": "146",
     "Lemak": "5,93g",
@@ -381,6 +400,7 @@
   },
   {
     "id": "19",
+    "linkGambar": "https://m.ftscrt.com/food/49198d7f-8dfc-4e1f-be6e-aa38368a8f45.jpg",
     "namaMakanan": "Ikan Salmon Panggang",
     "Kal": "171",
     "Lemak": "7,56g",
@@ -401,6 +421,7 @@
   },
   {
     "id": "20",
+    "linkGambar": "",
     "namaMakanan": "Ikan Salmon Atlantik (Ditambak)",
     "Kal": "183",
     "Lemak": "10,85g",
@@ -420,6 +441,7 @@
   },
   {
     "id": "21",
+    "linkGambar": "",
     "namaMakanan": "Salmon Merah Muda",
     "Kal": "116",
     "Lemak": "3,45g",
@@ -440,6 +462,7 @@
   },
   {
     "id": "22",
+    "linkGambar": "",
     "namaMakanan": "Ikan Salmon Liar Atlantik",
     "Kal": "281",
     "Lemak": "12,55g",
@@ -459,6 +482,7 @@
   },
   {
     "id": "23",
+    "linkGambar": "",
     "namaMakanan": "Ikan Sarden dalam Minyak (Kalengan)",
     "Kal": "25",
     "Lemak": "1,37g",
@@ -479,6 +503,7 @@
   },
   {
     "id": "24",
+    "linkGambar": "",
     "namaMakanan": "Ikan Sarden Di dalam Air",
     "Kal": "217",
     "Lemak": "12,37g",
@@ -499,6 +524,7 @@
   },
   {
     "id": "25",
+    "linkGambar": "https://m.ftscrt.com/food/fb577a2f-8174-4474-82fe-1386888c6909.jpg",
     "namaMakanan": "Sarden dengan Saus Tomat (Campuran)",
     "Kal": "166",
     "Lemak": "9,31g",
@@ -519,6 +545,7 @@
   },
   {
     "id": "26",
+    "linkGambar": "",
     "namaMakanan": "Ikan Teri (Kering Padat dalam Minyak, Kalengan)",
     "Kal": "42",
     "Lemak": "1,94g",
@@ -539,6 +566,7 @@
   },
   {
     "id": "27",
+    "linkGambar": "",
     "namaMakanan": "Tuna dalam Air (Kalengan)",
     "Kal": "116",
     "Lemak": "0,82g",
@@ -559,6 +587,7 @@
   },
   {
     "id": "28",
+    "linkGambar": "",
     "namaMakanan": "Tuna dalam Minyak (Kalengan)",
     "Kal": "198",
     "Lemak": "8,21g",
@@ -579,6 +608,7 @@
   },
   {
     "id": "29",
+    "linkGambar": "",
     "namaMakanan": "Tuna Sirip Biru (Ikan)",
     "Kal": "144",
     "Lemak": "4,9g",
@@ -599,6 +629,7 @@
   },
   {
     "id": "30",
+    "linkGambar": "",
     "namaMakanan": "Tuna Sirip Kuning (Ikan)",
     "Kal": "108",
     "Lemak": "0,95g",
@@ -619,6 +650,7 @@
   },
   {
     "id": "31",
+    "linkGambar": "https://m.ftscrt.com/food/1b335a33-f39d-4f6f-bc5c-02ea58a4f867.jpg",
     "namaMakanan": "Ikan Tuna Panggang",
     "Kal": "153",
     "Lemak": "3,96g",
@@ -639,6 +671,7 @@
   },
   {
     "id": "32",
+    "linkGambar": "https://m.ftscrt.com/food/97231692-e37f-4506-81e9-e7edf0cd4aa2.jpg",
     "namaMakanan": "Kepiting",
     "Kal": "119",
     "Lemak": "2,08g",
@@ -659,6 +692,7 @@
   },
   {
     "id": "33",
+    "linkGambar": "",
     "namaMakanan": "Kepiting Panggang",
     "Kal": "160",
     "Lemak": "7,36g",
@@ -679,6 +713,7 @@
   },
   {
     "id": "34",
+    "linkGambar": "",
     "namaMakanan": "Kepiting Kalengan",
     "Kal": "99",
     "Lemak": "1,23g",
@@ -699,6 +734,7 @@
   },
   {
     "id": "35",
+    "linkGambar": "",
     "namaMakanan": "Kepiting Biru",
     "Kal": "87",
     "Lemak": "1,08g",
@@ -718,6 +754,7 @@
   },
   {
     "id": "36",
+    "linkGambar": "",
     "namaMakanan": "Kerang",
     "Kal": "35",
     "Lemak": "1,75g",
@@ -738,6 +775,7 @@
   },
   {
     "id": "37",
+    "linkGambar": "https://m.ftscrt.com/food/ba5d2d05-4db4-4d57-b06e-2610df9f38e8.jpg",
     "namaMakanan": "Kerang (Spesies Campuran)",
     "Kal": "88",
     "Lemak": "0,76g",
@@ -758,6 +796,7 @@
   },
   {
     "id": "38",
+    "linkGambar": "",
     "namaMakanan": "Kerang Panggang",
     "Kal": "17",
     "Lemak": "0,5g",
@@ -778,6 +817,7 @@
   },
   {
     "id": "39",
+    "linkGambar": "https://m.ftscrt.com/food/7320d02d-b55c-4352-831d-b5748cf4e561.jpg",
     "namaMakanan": "Kerang Kukus atau Rebus",
     "Kal": "14",
     "Lemak": "0,4g",
@@ -798,6 +838,7 @@
   },
   {
     "id": "40",
+    "linkGambar": "",
     "namaMakanan": "Lobster",
     "Kal": "114",
     "Lemak": "0,68g",
@@ -818,6 +859,7 @@
   },
   {
     "id": "41",
+    "linkGambar": "",
     "namaMakanan": "Lobster Kukus atau Rebus",
     "Kal": "114",
     "Lemak": "0,68g",
@@ -838,6 +880,7 @@
   },
   {
     "id": "42",
+    "linkGambar": "",
     "namaMakanan": "Lobster Panggang",
     "Kal": "137",
     "Lemak": "3,55g",
@@ -858,6 +901,7 @@
   },
   {
     "id": "43",
+    "linkGambar": "",
     "namaMakanan": "Udang (Karang) Rebus atau Kukus",
     "Kal": "81",
     "Lemak": "1,19g",
@@ -878,6 +922,7 @@
   },
   {
     "id": "44",
+    "linkGambar": "",
     "namaMakanan": "Dimasak Hidup-hidup",
     "Kal": "133",
     "Lemak": "4,24g",
@@ -898,6 +943,7 @@
   },
   {
     "id": "45",
+    "linkGambar": "",
     "namaMakanan": "Dipanggang Hidup-hidup",
     "Kal": "173",
     "Lemak": "5,51g",
@@ -918,6 +964,7 @@
   },
   {
     "id": "46",
+    "linkGambar": "",
     "namaMakanan": "Tiram",
     "Kal": "33",
     "Lemak": "1,18g",
@@ -938,6 +985,7 @@
   },
   {
     "id": "47",
+    "linkGambar": "https://m.ftscrt.com/food/80885f96-3b9d-4278-aab8-374cab965e34.jpg",
     "namaMakanan": "Udang",
     "Kal": "7",
     "Lemak": "0,12g",
@@ -958,6 +1006,7 @@
   },
   {
     "id": "48",
+    "linkGambar": "https://m.ftscrt.com/food/08f94fc2-a54b-432b-914a-e02d5ae42af9.jpg",
     "namaMakanan": "Udang Panggang",
     "Kal": "154",
     "Lemak": "5,03g",
@@ -978,6 +1027,7 @@
   },
   {
     "id": "49",
+    "linkGambar": "",
     "namaMakanan": "Udang Kukus atau Rebus",
     "Kal": "7",
     "Lemak": "0,11g",
@@ -998,6 +1048,7 @@
   },
   {
     "id": "50",
+    "linkGambar": "",
     "namaMakanan": "Udang Scampi",
     "Kal": "288",
     "Lemak": "21,53g",
@@ -1018,6 +1069,7 @@
   },
   {
     "id": "51",
+    "linkGambar": "",
     "namaMakanan": "Udang Karang (Udang)",
     "Kal": "72",
     "Lemak": "0,97g",
@@ -1037,6 +1089,7 @@
   },
   {
     "id": "52",
+    "linkGambar": "",
     "namaMakanan": "Udang (Karang) Rebus atau Kukus",
     "Kal": "81",
     "Lemak": "1,19g",
