@@ -1,6 +1,7 @@
 import * as cheerio from 'cheerio'
 import axios from "axios"
 import fs from "fs"
+import { stringify } from 'querystring'
 
 async function getCheerioRoot(link) {
 
@@ -33,6 +34,7 @@ async function scrapGiziRingkas(cheerioRootHTML) {
     return giziRingkas
 }
 
+
 function scrapGiziLengkap(cheerioRootHTML) {
     const $ = cheerioRootHTML
     const kotak = $('.nutrition_facts.international')
@@ -43,6 +45,7 @@ function scrapGiziLengkap(cheerioRootHTML) {
 
         let property = $(each).text()
         property = property === '' ? 'EnergiInKal' : property
+        property = property.replace(/ /g,'')
         const value = $(kanan).eq(i).text()
 
         giziLengkap[property] = value
@@ -50,20 +53,20 @@ function scrapGiziLengkap(cheerioRootHTML) {
     return giziLengkap
 }
 
-async function scrapLengkapDanRingkas(subLink) {
+async function scrapLengkapDanRingkas(index,subLink) {
     const fatsecret = "https://www.fatsecret.co.id"
 
     const fullLink = fatsecret + subLink
     const makananHTML = await getCheerioRoot(fullLink)
     const dataRingkas = await scrapGiziRingkas(makananHTML)
     const dataLengkap = await scrapGiziLengkap(makananHTML)
-    return { ...dataRingkas, ...dataLengkap }
+    return { "id":String(index),...dataRingkas, ...dataLengkap }
 }
 
 const request = []
 const links = await getFoodLink()
-for (const link of links) {
-    request.push(scrapLengkapDanRingkas(link))
+for (const [index,link] of links.entries()) {
+    request.push(scrapLengkapDanRingkas(index,link))
 }
 
 const resolveRequest = await Promise.all(request)
