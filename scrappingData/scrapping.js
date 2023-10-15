@@ -1,5 +1,6 @@
 import * as cheerio from 'cheerio'
 import axios from "axios"
+import fs from "fs"
 
 async function getCheerioRoot(link) {
 
@@ -65,7 +66,23 @@ for(const link of links){
 }
 
 const resolveRequest = await Promise.all(request)
-console.log(resolveRequest)
+
+console.log(resolveRequest.length)
+const jsonString = JSON.stringify(resolveRequest, null, 2);
+
+const filePath = 'hasilScrapMakanan.json';
+
+fs.writeFile(filePath, jsonString, 'utf8', (err) => {
+  if (err) {
+    console.error('Error saving the JSON file:', err);
+  } else {
+    console.log('JSON file saved successfully.');
+  }
+});
+
+
+
+
 
 
 
