@@ -2,7 +2,18 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'ijo': '#00A86B',
+        'kuning': '#8FA946',
+        'abu': '#5B687A',
+        'abu-tipis': '#ABABAB'
+      }
+    },
+
+    screens: {
+      'xs': '486px'
+    }
   },
   plugins: [],
 }
