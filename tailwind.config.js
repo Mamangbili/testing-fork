@@ -12,9 +12,11 @@ module.exports = {
     },
 
     screens: {
+      'sm': '640px',
       'xxs': '380px',
       'xs': '486px'
     }
+
   },
   plugins: [],
 }
