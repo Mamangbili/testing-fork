@@ -556,6 +556,10 @@ video {
   }
 }
 
+.sticky {
+  position: sticky;
+}
+
 .m-auto {
   margin: auto;
 }
