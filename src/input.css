@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#nutrition tr {
+  font-size: 0.85rem;
+  border-bottom: 1px solid black;
+  & :nth-child(n + 2) {
+    text-align: center;
+  }
+
+  & td {
+    width: 33%;
+    padding-block: 5px;
+  }
+}
+
+#nutrition .sub-nutrient td:first-of-type {
+  padding-left: 25px;
+  width: 60%;
+}
+
+#hamburger-menu {
+  left:-100vw;
+  transition: left 1s;
+}
+
