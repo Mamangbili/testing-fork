@@ -8,19 +8,23 @@
     <script src="script.js" defer></script>
   </head>
   <body class="">
-    <div class="flex flex-col sm:flex-row">
-      <nav class="flex h-full justify-between">
-        <div class="bg-red-200"></div>
-
-        <!-- <div class="h-auto flex">
+    <div class="flex flex-col sm:flex-row sm:items-center md:max-w-md">
+      <nav
+        class="flex w-full h-full justify-between px-2 xs:px-5 sm:flex-row-reverse sm:justify-end">
+        <ul class="sm:flex sm:items-center sm:gap-5 hidden">
+          <li>Home</li>
+          <li>Makanan</li>
+          <li>Favorit</li>
+        </ul>
+        <div class="h-auto flex sm:hidden">
           <img src="asset/hamburger-menu.png" class="my-auto" alt="" />
-        </div> -->
+        </div>
         <div class="w-[94px] h-[90px] flex">
-          <img src="asset/logo.png" class="m-auto" alt="" />
+          <img src="asset/logo.png" class="m-auto w-full h-full" alt="" />
         </div>
       </nav>
 
-      <div class="w-full container mx-auto xs:max-w-sm">
+      <div class="w-full container mx-auto xs:max-w-sm gap-2">
         <div
           class="w-full h-[40px] border-2 border-kuning rounded-r-xl rounded-l-md">
           <div class="flex w-full h-full">
@@ -35,114 +39,114 @@
         </div>
       </div>
     </div>
+
     <!-- content body -->
-    <div class="w-fit m-auto flex flex-col gap-2 md:flex-initial">
-      <div class="container">
-        <div>
-          <h1
-            class="border-2 border-opacity-40 border-abu-tipis text-abu font-bold py-5 px-2 shadow-sm rounded-md">
-            Nasi Putih
-          </h1>
+    <div class="w-fit m-auto flex flex-col gap-2 md:flex-initial ">
+      <div>
+        <h1
+          class="border-2 border-opacity-40 border-abu-tipis text-abu font-bold py-5 px-2 shadow-sm rounded-md">
+          Nasi Putih
+        </h1>
+      </div>
+      <div
+        id="converter"
+        class="flex py-3 px-2 justify-between gap-1 border-2 border-opacity-40 rounded-md box-border shadow-md border-abu-tipis container">
+        <span class="block text-abu font-bold">Jumlah:</span>
+        <input
+          class="border-2 border-opacity-40 px-2 rounded-md outline-none border-kuning box-border w-44 xxs:w-full"
+          type="number"
+          placeholder="100" />
+        <select
+          class="border-2 border-opacity-40 outline-none m-autobox-borderborder-kuning rounded-md items-center text-abu-tipis"
+          id="">
+          <option value="gram">gram (g)</option>
+        </select>
+      </div>
+      <div
+        class="rounded-md border-2 border-opacity-40 border-abu-tipis h-auto w-full container p-2 xs:w-max shadow-md">
+        <div class="w-full h-full">
+          <h2 class="text-base text-abu font-bold">Informasi Gizi</h2>
+          <span class="text-sm text-abu-tipis">per 100 gram</span>
+          <div class="border-b-[3px] border-black"></div>
+          <table id="nutrition" class="w-full">
+            <tr>
+              <td class="text-ijo"></td>
+              <td></td>
+              <td>%AKG</td>
+            </tr>
+            <tr>
+              <td class="text-ijo">Energi</td>
+              <td>2</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td class="text-ijo">Lemak</td>
+              <td>2</td>
+              <td>3</td>
+            </tr>
+            <tr class="sub-nutrient">
+              <td class="text-kuning">Lemak Jenuh</td>
+              <td class="text-kuning">2</td>
+              <td class="text-kuning">3</td>
+            </tr>
+            <tr class="sub-nutrient">
+              <td class="text-kuning">Lemak Jenuh Ganda</td>
+              <td class="text-kuning">2</td>
+              <td class="text-kuning">3</td>
+            </tr>
+            <tr class="sub-nutrient">
+              <td class="text-kuning">Lemak Jenuh Tunggal</td>
+              <td class="text-kuning">2</td>
+              <td class="text-kuning">3</td>
+            </tr>
+            <tr>
+              <td class="text-ijo">Kolestrol</td>
+              <td>2</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td class="text-ijo">Protein</td>
+              <td>2</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td class="text-ijo">Karbohidrat</td>
+              <td>2</td>
+              <td>3</td>
+            </tr>
+            <tr class="sub-nutrient">
+              <td class="text-kuning">Serat</td>
+              <td class="text-kuning">2</td>
+              <td class="text-kuning">3</td>
+            </tr>
+            <tr class="sub-nutrient">
+              <td class="text-kuning">Gula</td>
+              <td class="text-kuning">2</td>
+              <td class="text-kuning">3</td>
+            </tr>
+            <tr>
+              <td class="text-ijo">Gula</td>
+              <td>2</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td class="text-ijo">Kalium</td>
+              <td>2</td>
+              <td>3</td>
+            </tr>
+          </table>
+          <p class="italic text-sm mt-2 font-semibold">
+            *Persen AKG berdasarkan kebutuhan energi 2150kkal. kebutuhan
+            energi anda mungkin lebih tinggi atau lebih rendah
+          </p>
         </div>
-        <div
-          id="converter"
-          class="flex py-3 px-2 justify-between gap-1 border-2 border-opacity-40 rounded-md box-border shadow-md border-abu-tipis container">
-          <span class="block text-abu font-bold">Jumlah:</span>
-          <input
-            class="border-2 border-opacity-40 px-2 rounded-md outline-none border-kuning box-border w-44 xxs:w-full"
-            type="number"
-            placeholder="100" />
-          <select
-            class="border-2 border-opacity-40 outline-none m-autobox-borderborder-kuning rounded-md items-center text-abu-tipis"
-            id="">
-            <option value="gram">gram (g)</option>
-          </select>
-        </div>
-        <div
-          class="rounded-md border-2 border-opacity-40 border-abu-tipis h-auto w-full container p-2 xs:w-max shadow-md">
-          <div class="w-full h-full">
-            <h2 class="text-base text-abu font-bold">Informasi Gizi</h2>
-            <span class="text-sm text-abu-tipis">per 100 gram</span>
-            <div class="border-b-[3px] border-black"></div>
-            <table id="nutrition" class="w-full">
-              <tr>
-                <td class="text-ijo"></td>
-                <td></td>
-                <td>%AKG</td>
-              </tr>
-              <tr>
-                <td class="text-ijo">Energi</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <td class="text-ijo">Lemak</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-              <tr class="sub-nutrient">
-                <td class="text-kuning">Lemak Jenuh</td>
-                <td class="text-kuning">2</td>
-                <td class="text-kuning">3</td>
-              </tr>
-              <tr class="sub-nutrient">
-                <td class="text-kuning">Lemak Jenuh Ganda</td>
-                <td class="text-kuning">2</td>
-                <td class="text-kuning">3</td>
-              </tr>
-              <tr class="sub-nutrient">
-                <td class="text-kuning">Lemak Jenuh Tunggal</td>
-                <td class="text-kuning">2</td>
-                <td class="text-kuning">3</td>
-              </tr>
-              <tr>
-                <td class="text-ijo">Kolestrol</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <td class="text-ijo">Protein</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <td class="text-ijo">Karbohidrat</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-              <tr class="sub-nutrient">
-                <td class="text-kuning">Serat</td>
-                <td class="text-kuning">2</td>
-                <td class="text-kuning">3</td>
-              </tr>
-              <tr class="sub-nutrient">
-                <td class="text-kuning">Gula</td>
-                <td class="text-kuning">2</td>
-                <td class="text-kuning">3</td>
-              </tr>
-              <tr>
-                <td class="text-ijo">Gula</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <td class="text-ijo">Kalium</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-            </table>
-            <p class="italic text-sm mt-2 font-semibold">
-              *Persen AKG berdasarkan kebutuhan energi 2150kkal. kebutuhan
-              energi anda mungkin lebih tinggi atau lebih rendah
-            </p>
-          </div>
-        </div>
-        <div
-          id="foto"
-          class="p-2 border-2 border-opacity-40 shadow-md rounded-md container">
-          <h1 class="py-2">Foto</h1>
-          <img src="" alt="" class="h-[260px] w-[360px] object-cover" />
-        </div>
+      </div>
+      <!-- foto -->
+      <div
+        id="foto"
+        class="p-2 border-2 border-opacity-40 shadow-md rounded-md container">
+        <h1 class="py-2">Foto</h1>
+        <img src="" alt="" class="h-[260px] w-[360px] object-cover mx-auto" />
       </div>
       <div>
         <div
