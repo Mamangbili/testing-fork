@@ -6,9 +6,36 @@
     <title>Document</title>
     <link rel="stylesheet" href="output.css" />
     <script src="script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <script src="detail-makanan.js" defer></script>
   </head>
   <body class="">
-    <div class="flex flex-col sm:flex-row sm:items-center md:max-w-md">
+    <!-- hamburger menu hidden -->
+    <div
+      id="hamburger-menu"
+      class="bg-white h-screen w-screen fixed masuk-hamburger-menu">
+      <i
+        class="fa-solid fa-x fa-beat fa-xl right-10 top-8 absolute hover:cursor-pointer"
+        style="color: #286244"></i>
+      <ul
+        class="absolute top-1/3 left-1/2 -translate-x-1/2 text-center grid gap-12 text-4xl">
+        <li
+          class="hover:border-b-4 hover:border-double hover:-mt-1 cursor-pointer">
+          Menu
+        </li>
+        <li class="border-b-4 border-double hover:cursor-pointer">Makanan</li>
+        <li
+          class="hover:border-b-4 hover:border-double hover:-mt-1 cursor-pointer">
+          Favorit
+        </li>
+      </ul>
+    </div>
+    <!-- ^^^ hamburger-menu hidden ^^^ -->
+
+    <!-- navigasi header -->
+    <div class="flex flex-col sm:flex-row sm:items-center md:max-w-md sm:mr-10 mx-auto">
       <nav
         class="flex w-full h-full justify-between px-2 xs:px-5 sm:flex-row-reverse sm:justify-end">
         <ul class="sm:flex sm:items-center sm:gap-5 hidden">
@@ -16,8 +43,11 @@
           <li>Makanan</li>
           <li>Favorit</li>
         </ul>
-        <div class="h-auto flex sm:hidden">
-          <img src="asset/hamburger-menu.png" class="my-auto" alt="" />
+        <div class="flex sm:hidden ml-5">
+          <img
+            src="asset/hamburger-menu.png"
+            class="my-auto h-1/5 hover:cursor-pointer"
+            alt="" />
         </div>
         <div class="w-[94px] h-[90px] flex">
           <img src="asset/logo.png" class="m-auto w-full h-full" alt="" />
@@ -41,117 +71,125 @@
     </div>
 
     <!-- content body -->
-    <div class="w-fit m-auto flex flex-col gap-2 md:flex-initial ">
-      <div>
-        <h1
-          class="border-2 border-opacity-40 border-abu-tipis text-abu font-bold py-5 px-2 shadow-sm rounded-md">
-          Nasi Putih
-        </h1>
-      </div>
-      <div
-        id="converter"
-        class="flex py-3 px-2 justify-between gap-1 border-2 border-opacity-40 rounded-md box-border shadow-md border-abu-tipis container">
-        <span class="block text-abu font-bold">Jumlah:</span>
-        <input
-          class="border-2 border-opacity-40 px-2 rounded-md outline-none border-kuning box-border w-44 xxs:w-full"
-          type="number"
-          placeholder="100" />
-        <select
-          class="border-2 border-opacity-40 outline-none m-autobox-borderborder-kuning rounded-md items-center text-abu-tipis"
-          id="">
-          <option value="gram">gram (g)</option>
-        </select>
-      </div>
-      <div
-        class="rounded-md border-2 border-opacity-40 border-abu-tipis h-auto w-full container p-2 xs:w-max shadow-md">
-        <div class="w-full h-full">
-          <h2 class="text-base text-abu font-bold">Informasi Gizi</h2>
-          <span class="text-sm text-abu-tipis">per 100 gram</span>
-          <div class="border-b-[3px] border-black"></div>
-          <table id="nutrition" class="w-full">
-            <tr>
-              <td class="text-ijo"></td>
-              <td></td>
-              <td>%AKG</td>
-            </tr>
-            <tr>
-              <td class="text-ijo">Energi</td>
-              <td>2</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td class="text-ijo">Lemak</td>
-              <td>2</td>
-              <td>3</td>
-            </tr>
-            <tr class="sub-nutrient">
-              <td class="text-kuning">Lemak Jenuh</td>
-              <td class="text-kuning">2</td>
-              <td class="text-kuning">3</td>
-            </tr>
-            <tr class="sub-nutrient">
-              <td class="text-kuning">Lemak Jenuh Ganda</td>
-              <td class="text-kuning">2</td>
-              <td class="text-kuning">3</td>
-            </tr>
-            <tr class="sub-nutrient">
-              <td class="text-kuning">Lemak Jenuh Tunggal</td>
-              <td class="text-kuning">2</td>
-              <td class="text-kuning">3</td>
-            </tr>
-            <tr>
-              <td class="text-ijo">Kolestrol</td>
-              <td>2</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td class="text-ijo">Protein</td>
-              <td>2</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td class="text-ijo">Karbohidrat</td>
-              <td>2</td>
-              <td>3</td>
-            </tr>
-            <tr class="sub-nutrient">
-              <td class="text-kuning">Serat</td>
-              <td class="text-kuning">2</td>
-              <td class="text-kuning">3</td>
-            </tr>
-            <tr class="sub-nutrient">
-              <td class="text-kuning">Gula</td>
-              <td class="text-kuning">2</td>
-              <td class="text-kuning">3</td>
-            </tr>
-            <tr>
-              <td class="text-ijo">Gula</td>
-              <td>2</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td class="text-ijo">Kalium</td>
-              <td>2</td>
-              <td>3</td>
-            </tr>
-          </table>
-          <p class="italic text-sm mt-2 font-semibold">
-            *Persen AKG berdasarkan kebutuhan energi 2150kkal. kebutuhan
-            energi anda mungkin lebih tinggi atau lebih rendah
-          </p>
+    <div
+      class="m-auto flex flex-col md:flex-initial mt-2 md2:flex-initial md2:flex-row gap-5 container">
+      <!-- desktop left side -->
+      <div id="left-side ">
+        <div>
+          <h1
+            class="border-2 border-opacity-40 border-abu-tipis text-abu font-bold py-5 px-2 shadow-sm rounded-md">
+            Nasi Putih
+          </h1>
+        </div>
+        <div
+          id="converter"
+          class="flex py-3 px-2 justify-between gap-1 border-2 border-opacity-40 rounded-md box-border shadow-md border-abu-tipis container">
+          <span class="block text-abu font-bold">Jumlah:</span>
+          <input
+            class="border-2 border-opacity-40 px-2 rounded-md outline-none border-kuning box-border w-44 xxs:w-full"
+            type="number"
+            placeholder="100" />
+          <select
+            class="border-2 border-opacity-40 outline-none m-autobox-borderborder-kuning rounded-md items-center text-abu-tipis"
+            id="">
+            <option value="gram">gram (g)</option>
+          </select>
+        </div>
+        <!-- informasi gizi -->
+        <div
+          class="rounded-md border-2 border-opacity-40 border-abu-tipis p-2 w-full shadow-md">
+          <div class="w-full h-full">
+            <h2 class="text-base text-abu font-bold">Informasi Gizi</h2>
+            <span class="text-sm text-abu-tipis">per 100 gram</span>
+            <div class="border-b-[3px] border-black"></div>
+            <table id="nutrition" class="w-full">
+              <tr>
+                <td class="text-ijo"></td>
+                <td></td>
+                <td>%AKG</td>
+              </tr>
+              <tr>
+                <td class="text-ijo">Energi</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td class="text-ijo">Lemak</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+              <tr class="sub-nutrient">
+                <td class="text-kuning">Lemak Jenuh</td>
+                <td class="text-kuning">2</td>
+                <td class="text-kuning">3</td>
+              </tr>
+              <tr class="sub-nutrient">
+                <td class="text-kuning">Lemak Jenuh Ganda</td>
+                <td class="text-kuning">2</td>
+                <td class="text-kuning">3</td>
+              </tr>
+              <tr class="sub-nutrient">
+                <td class="text-kuning">Lemak Jenuh Tunggal</td>
+                <td class="text-kuning">2</td>
+                <td class="text-kuning">3</td>
+              </tr>
+              <tr>
+                <td class="text-ijo">Kolestrol</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td class="text-ijo">Protein</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td class="text-ijo">Karbohidrat</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+              <tr class="sub-nutrient">
+                <td class="text-kuning">Serat</td>
+                <td class="text-kuning">2</td>
+                <td class="text-kuning">3</td>
+              </tr>
+              <tr class="sub-nutrient">
+                <td class="text-kuning">Gula</td>
+                <td class="text-kuning">2</td>
+                <td class="text-kuning">3</td>
+              </tr>
+              <tr>
+                <td class="text-ijo">Gula</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td class="text-ijo">Kalium</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+            </table>
+            <p class="italic text-sm mt-2 font-semibold">
+              *Persen AKG berdasarkan kebutuhan energi 2150kkal. kebutuhan
+              energi anda mungkin lebih tinggi atau lebih rendah
+            </p>
+          </div>
+        </div>
+        <!-- foto -->
+        <div
+          id="foto"
+          class="p-2 border-2 border-opacity-40 shadow-md rounded-md container">
+          <h1 class="py-2">Foto</h1>
+          <img src="" alt="" class="h-[260px] w-[360px] object-cover mx-auto" />
         </div>
       </div>
-      <!-- foto -->
-      <div
-        id="foto"
-        class="p-2 border-2 border-opacity-40 shadow-md rounded-md container">
-        <h1 class="py-2">Foto</h1>
-        <img src="" alt="" class="h-[260px] w-[360px] object-cover mx-auto" />
-      </div>
-      <div>
+
+      <!-- Ringkasan gizi -->
+      <!-- desktop right side -->
+      <div class="right-side md2:w-1/2">
         <div
           id="ringkasan-gizi"
-          class="container p-2 w-full border-abu-tipis border-2 border-opacity-40 shadow-md rounded-md flex flex-col gap-2">
+          class="p-2 w-full border-abu-tipis border-2 border-opacity-40 shadow-md rounded-md flex flex-col gap-2">
           <h1 class="py-2">Ringkasan Gizi</h1>
           <div
             id="energi"
@@ -190,9 +228,10 @@
             <div class="font-bold text-3xl py-4 text-center">111</div>
           </div>
         </div>
+        <!-- gizi yang diunggulkan -->
         <div
           id="unggulan"
-          class="p-2 container border-2 border-opacity-40 flex flex-col gap-2">
+          class="p-2 border-2 border-opacity-40 flex flex-col gap-2">
           <h1 class="py-2">Zat Gizi Unggulan Dalam Produk Ini</h1>
           <div class="p-1 flex rounded-md flex-col bg-lime-400">
             <div class="flex justify-between text-sm">

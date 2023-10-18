@@ -19,3 +19,9 @@
   padding-left: 25px;
   width: 60%;
 }
+
+#hamburger-menu {
+  left:-100vw;
+  transition: left 1s;
+}
+
