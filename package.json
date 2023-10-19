@@ -1,8 +1,6 @@
 {
-
   "scripts": {
     "watch-tailwind": "tailwindcss -i ./src/input.css -o ./src/output.css --watch"
-    
   },
   "dependencies": {
     "autoprefixer": "^10.4.16",
@@ -13,5 +11,11 @@
     "axios": "^1.5.1",
     "cheerio": "^1.0.0-rc.12"
   },
-  "type":"module"
+  "type": "module",
+  "name": "nutripal",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
