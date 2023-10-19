@@ -98,6 +98,8 @@ function renderTableFullNutrition(tableDataWithDOM) {
     for (const nutrient in tableDataWithDOM) {
         const value = tableDataWithDOM[nutrient].mutableValue
         const unit = tableDataWithDOM[nutrient].unit
+        const akg = tableDataWithDOM[nutrient][nutrient.toString() + 'Akg']
+        tableDataWithDOM[nutrient].AKGDOM.innerHTML = (akg * 100).toFixed(2)
         tableDataWithDOM[nutrient].kandunganDOM.innerHTML = value.toFixed(2) + ' ' + unit
     }
 
@@ -110,8 +112,12 @@ function renderTableConcise(tableDataWithDOM) {
     tableDataWithDOM.Karb.conciseDOM.innerHTML = tableDataWithDOM.Karb.mutableValue.toFixed(2) + ' ' + tableDataWithDOM.Karb.unit
 }
 
+function giziUnggulan(tableDataWithDOM) {
+    const terbaik3 = []
+    for (const nutrient in tableDataWithDOM) {
 
-
+    }
+}
 
 const multipliedNutrient = (dataNutrientOBJ, multiplier) => {
     for (const nutrient in dataNutrientOBJ) {
@@ -130,8 +136,32 @@ const fetchingData = async (end_point) => {
     }
 }
 
+function pickBestNutrion(tableDataWithDOM) {
+    const entries = Object.keys(tableDataWithDOM).map(key => ({ key, value: tableDataWithDOM[key] }));
+    const picked = []
+    while (picked.length < 3) {
+        const idx = Math.random() * entries.length
+        if (picked.includes(parseInt(idx))) continue
+        picked.push(parseInt(idx))
+    }
+    const best = picked.map(e => entries[e])
+    return best
 
+}
 
+function renderGiziUnggulan(giziTerbaikList) {
+    const rowsUnggulan = document.querySelectorAll('#unggulan > div')
+    giziTerbaikList.map((gizi, index) => {
+        const containerRowsHeader = rowsUnggulan[index].querySelector('div')
+        const nomorUrut = containerRowsHeader.querySelectorAll('span')[0]
+        const akg = containerRowsHeader.querySelectorAll('span')[1]
+        const namaGizi = rowsUnggulan[index].querySelectorAll('span')[2]
+        console.log(index)
+        nomorUrut.innerHTML = index + 1
+        akg.innerHTML = (gizi.value[gizi.key + 'Akg'] * 100).toFixed(2) + '%'
+        namaGizi.innerHTML = gizi.key
+    })
+}
 
 async function main() {
     const makanan_endpoint = 'https://652526aa67cfb1e59ce6bcdb.mockapi.io/makanan'
@@ -141,31 +171,84 @@ async function main() {
     if (data) { mainDOM.style.display = 'flex'; console.log('berhasil memuat') }
     else { console.log('gagal memuat') }
     const fotoDOM = document.querySelector('#foto > img')
-    const contohData = data[0]
-    
-    fotoDOM.src = contohData.linkGambar
-    const sterilData = createNewSterilizeResponse(contohData)
+    const dataTampilan = data[0]
+    fotoDOM.src = dataTampilan.linkGambar
+    console.log('ano', dataTampilan.EnergiAkg)
+    const sterilData = createNewSterilizeResponse(dataTampilan)
 
-    console.log(sterilData)
+    console.log(dataTampilan.KarbAkg)
     //mutable sehingga bagian lain bisa akses
     const strerilDataWithDom = {
-        Energi: { ...sterilData.Energi, ...getRowFullTableDOM(".Energi > td", nutritionFullTableDOM), ...getRowConciseDOM('div:first-of-type > div:last-of-type', conciseTableDOM) },
-        Lemak: { ...sterilData.Lemak, ...getRowFullTableDOM(".Lemak > td", nutritionFullTableDOM), ...getRowConciseDOM('div:nth-of-type(3)> div:last-of-type', conciseTableDOM) },
-        LemakJenuh: { ...sterilData.LemakJenuh, ...getRowFullTableDOM(".LemakJenuh > td", nutritionFullTableDOM) },
-        LemaktakJenuhGanda: { ...sterilData.LemaktakJenuhGanda, ...getRowFullTableDOM(".LemaktakJenuhGanda > td", nutritionFullTableDOM) },
-        LemaktakJenuhTunggal: { ...sterilData.LemaktakJenuhTunggal, ...getRowFullTableDOM(".LemaktakJenuhTunggal > td", nutritionFullTableDOM) },
-        Kolesterol: { ...sterilData.Kolesterol, ...getRowFullTableDOM(".Kolesterol > td", nutritionFullTableDOM) },
-        Prot: { ...sterilData.Protein, ...getRowFullTableDOM(".Protein > td", nutritionFullTableDOM), ...getRowConciseDOM('div:nth-of-type(2)> div:last-of-type', conciseTableDOM) },
-        Karb: { ...sterilData.Karbohidrat, ...getRowFullTableDOM(".Karbohidrat > td", nutritionFullTableDOM), ...getRowConciseDOM('div:last-of-type> div:last-of-type', conciseTableDOM) },
-        Serat: { ...sterilData.Serat, ...getRowFullTableDOM(".Serat > td", nutritionFullTableDOM), },
-        Gula: { ...sterilData.Gula, ...getRowFullTableDOM(".Gula > td", nutritionFullTableDOM) },
-        Sodium: { ...sterilData.Sodium, ...getRowFullTableDOM(".Sodium > td", nutritionFullTableDOM) },
-        Kalium: { ...sterilData.Kalium, ...getRowFullTableDOM(".Kalium > td", nutritionFullTableDOM) },
+        Energi: {
+            EnergiAkg: dataTampilan.EnergiAkg
+            , ...sterilData.Energi
+            , ...getRowFullTableDOM(".Energi > td"
+                , nutritionFullTableDOM)
+            , ...getRowConciseDOM('div:first-of-type > div:last-of-type', conciseTableDOM)
+        },
+        Lemak: {
+            LemakAkg: dataTampilan.LemakAkg
+            , ...sterilData.Lemak
+            , ...getRowFullTableDOM(".Lemak > td", nutritionFullTableDOM)
+            , ...getRowConciseDOM('div:nth-of-type(3)> div:last-of-type', conciseTableDOM)
+        }
+        ,
+        LemakJenuh: {
+            LemakJenuhAkg: dataTampilan.LemakJenuhAkg
+            , ...sterilData.LemakJenuh
+            , ...getRowFullTableDOM(".LemakJenuh > td", nutritionFullTableDOM)
+        },
+        LemaktakJenuhGanda: {
+
+            LemaktakJenuhGandaAkg: dataTampilan.LemaktakJenuhGandaAkg
+            , ...sterilData.LemaktakJenuhGanda
+            , ...getRowFullTableDOM(".LemaktakJenuhGanda > td", nutritionFullTableDOM)
+        },
+        LemaktakJenuhTunggal: {
+            LemaktakJenuhTunggalAkg: dataTampilan.LemaktakJenuhTunggalAkg
+            , ...sterilData.LemaktakJenuhTunggal
+            , ...getRowFullTableDOM(".LemaktakJenuhTunggal > td", nutritionFullTableDOM)
+        },
+        Kolesterol: {
+            KolesterolAkg: dataTampilan.KolesterolAkg
+            , ...sterilData.Kolesterol
+            , ...getRowFullTableDOM(".Kolesterol > td", nutritionFullTableDOM)
+        },
+        Prot: {
+            ProtAkg: dataTampilan.ProtAkg
+            , ...sterilData.Protein
+            , ...getRowFullTableDOM(".Protein > td", nutritionFullTableDOM)
+            , ...getRowConciseDOM('div:nth-of-type(2)> div:last-of-type', conciseTableDOM)
+        },
+        Karb: { KarbAkg: dataTampilan.KarbAkg, ...sterilData.Karbohidrat, ...getRowFullTableDOM(".Karbohidrat > td", nutritionFullTableDOM), ...getRowConciseDOM('div:last-of-type> div:last-of-type', conciseTableDOM) },
+        Serat: {
+            SeratAkg: dataTampilan.SeratAkg
+            , ...sterilData.Serat
+            , ...getRowFullTableDOM(".Serat > td", nutritionFullTableDOM),
+        },
+        Gula: {
+            GulaAkg: dataTampilan.GulaAkg
+            , ...sterilData.Gula
+            , ...getRowFullTableDOM(".Gula > td", nutritionFullTableDOM)
+        },
+        Sodium: {
+            SodiumAkg: dataTampilan.SodiumAkg
+            , ...sterilData.Sodium
+            , ...getRowFullTableDOM(".Sodium > td", nutritionFullTableDOM)
+        },
+        Kalium: {
+            KaliumAkg: dataTampilan.KaliumAkg
+            , ...sterilData.Kalium
+            , ...getRowFullTableDOM(".Kalium > td", nutritionFullTableDOM)
+        },
     }
+    console.log(strerilDataWithDom)
+
+    const giziUnggulan = pickBestNutrion(strerilDataWithDom)
 
     renderTableFullNutrition(strerilDataWithDom)
     renderTableConcise(strerilDataWithDom)
-    
+    renderGiziUnggulan(giziUnggulan)
 
     // bagian konversi
     let beratMakanan = 100
