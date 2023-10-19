@@ -9,9 +9,15 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-    <script src="detail-makanan.js" defer></script>
+    <script src="detail-makanan.js " type="module" defer></script>
   </head>
   <body class="">
+    <!-- pop up favorit -->
+    <div id="notif-berhasil"
+      class="fixed w-50 top-1/2 left-1/2 -translate-x-1/2 z-10  border-ijo border-[3px] mx-auto bg-white shadow-md  text-center px-2 py-4 rounded-md">
+      
+    </div>
+
     <!-- hamburger menu hidden -->
     <div
       id="hamburger-menu"
@@ -35,7 +41,8 @@
     <!-- ^^^ hamburger-menu hidden ^^^ -->
 
     <!-- navigasi header -->
-    <div class="flex flex-col sm:flex-row sm:items-center md:max-w-md sm:mr-10 mx-auto">
+    <div
+      class="flex flex-col sm:flex-row sm:items-center md:max-w-md sm:mr-10 mx-auto">
       <nav
         class="flex w-full h-full justify-between px-2 xs:px-5 sm:flex-row-reverse sm:justify-end">
         <ul class="sm:flex sm:items-center sm:gap-5 hidden">
@@ -53,7 +60,8 @@
           <img src="asset/logo.png" class="m-auto w-full h-full" alt="" />
         </div>
       </nav>
-
+      
+      <!-- search -->
       <div class="w-full container mx-auto xs:max-w-sm gap-2">
         <div
           class="w-full h-[40px] border-2 border-kuning rounded-r-xl rounded-l-md">
@@ -71,19 +79,25 @@
     </div>
 
     <!-- content body -->
-    <div
+    <main
       class="m-auto flex flex-col md:flex-initial mt-2 md2:flex-initial md2:flex-row gap-5 container">
       <!-- desktop left side -->
-      <div id="left-side ">
-        <div>
+      <div id="left-side">
+        <!-- Makanan -->
+        <div class="mb-2 flex justify-between pr- border-2 border-opacity-40 border-abu-tipis text-abu font-bold py-5 px-2 shadow-sm rounded-md pr-7 ">
           <h1
-            class="border-2 border-opacity-40 border-abu-tipis text-abu font-bold py-5 px-2 shadow-sm rounded-md">
+            class="">
             Nasi Putih
           </h1>
+          <div class="relative">
+            <div id="favorit-no" class=""><i  class="absolute top-1 -translate-x-1/2 left-1/2 fa-regular fa-star fa-lg mt-2 hidden"></i></div>
+            <div id="favorit-yes" class="hidden"><i  class="absolute top-1 -translate-x-1/2 left-1/2 fa-solid fa-star fa-lg mt-2 hidden"></i></div>
+          </div>
         </div>
+        <!-- converter -->
         <div
           id="converter"
-          class="flex py-3 px-2 justify-between gap-1 border-2 border-opacity-40 rounded-md box-border shadow-md border-abu-tipis container">
+          class="flex py-3 px-2 mb-2 justify-between gap-1 border-2 border-opacity-40 rounded-md box-border shadow-md border-abu-tipis container">
           <span class="block text-abu font-bold">Jumlah:</span>
           <input
             class="border-2 border-opacity-40 px-2 rounded-md outline-none border-kuning box-border w-44 xxs:w-full"
@@ -94,10 +108,14 @@
             id="">
             <option value="gram">gram (g)</option>
           </select>
+          <button class="px-3 bg-kuning text-sm rounded-md text-white">
+            Ubah
+          </button>
         </div>
         <!-- informasi gizi -->
         <div
-          class="rounded-md border-2 border-opacity-40 border-abu-tipis p-2 w-full shadow-md">
+          id="nutrition-full-table"
+          class="rounded-md border-2 border-opacity-40 mb-2 border-abu-tipis p-2 w-full shadow-md">
           <div class="w-full h-full">
             <h2 class="text-base text-abu font-bold">Informasi Gizi</h2>
             <span class="text-sm text-abu-tipis">per 100 gram</span>
@@ -108,65 +126,65 @@
                 <td></td>
                 <td>%AKG</td>
               </tr>
-              <tr>
+              <tr class="Energi">
                 <td class="text-ijo">Energi</td>
-                <td>2</td>
-                <td>3</td>
+                <td>0</td>
+                <td>0</td>
               </tr>
-              <tr>
+              <tr class="Lemak">
                 <td class="text-ijo">Lemak</td>
-                <td>2</td>
-                <td>3</td>
+                <td>0</td>
+                <td>0</td>
               </tr>
-              <tr class="sub-nutrient">
+              <tr class="sub-nutrient LemakJenuh">
                 <td class="text-kuning">Lemak Jenuh</td>
-                <td class="text-kuning">2</td>
-                <td class="text-kuning">3</td>
+                <td class="text-kuning">0</td>
+                <td class="text-kuning">0</td>
               </tr>
-              <tr class="sub-nutrient">
-                <td class="text-kuning">Lemak Jenuh Ganda</td>
-                <td class="text-kuning">2</td>
-                <td class="text-kuning">3</td>
+              <tr class="sub-nutrient LemaktakJenuhGanda">
+                <td class="text-kuning">Lemak tak Jenuh Ganda</td>
+                <td class="text-kuning">0</td>
+                <td class="text-kuning">0</td>
               </tr>
-              <tr class="sub-nutrient">
-                <td class="text-kuning">Lemak Jenuh Tunggal</td>
-                <td class="text-kuning">2</td>
-                <td class="text-kuning">3</td>
+              <tr class="sub-nutrient LemaktakJenuhTunggal">
+                <td class="text-kuning">Lemak tak Jenuh Tunggal</td>
+                <td class="text-kuning">0</td>
+                <td class="text-kuning">0</td>
               </tr>
-              <tr>
-                <td class="text-ijo">Kolestrol</td>
-                <td>2</td>
-                <td>3</td>
+              <tr class="Kolesterol">
+                <td class="text-ijo">Kolesterol</td>
+                <td>0</td>
+                <td>0</td>
               </tr>
-              <tr>
+              <tr class="Protein">
                 <td class="text-ijo">Protein</td>
-                <td>2</td>
-                <td>3</td>
+                <td>0</td>
+                <td>0</td>
               </tr>
-              <tr>
+              <tr class="Karbohidrat">
                 <td class="text-ijo">Karbohidrat</td>
-                <td>2</td>
-                <td>3</td>
+                <td>0</td>
+                <td>0</td>
               </tr>
-              <tr class="sub-nutrient">
+              <tr class="sub-nutrient Serat">
                 <td class="text-kuning">Serat</td>
-                <td class="text-kuning">2</td>
-                <td class="text-kuning">3</td>
+                <td class="text-kuning">0</td>
+                <td class="text-kuning">0</td>
               </tr>
-              <tr class="sub-nutrient">
+              <tr class="sub-nutrient Gula">
                 <td class="text-kuning">Gula</td>
-                <td class="text-kuning">2</td>
-                <td class="text-kuning">3</td>
+                <td class="text-kuning">0</td>
+                <td class="text-kuning">0</td>
               </tr>
-              <tr>
-                <td class="text-ijo">Gula</td>
-                <td>2</td>
-                <td>3</td>
+              <tr class="Sodium">
+                <td class="text-ijo">Sodium</td>
+                <td>0</td>
+                <td>0</td>
               </tr>
-              <tr>
+              <tr class="Kalium">
                 <td class="text-ijo">Kalium</td>
-                <td>2</td>
-                <td>3</td>
+                <td>0</td>
+                <td>0</td>
               </tr>
             </table>
             <p class="italic text-sm mt-2 font-semibold">
@@ -178,9 +196,9 @@
         <!-- foto -->
         <div
           id="foto"
-          class="p-2 border-2 border-opacity-40 shadow-md rounded-md container">
+          class="p-2 mb-2 border-2 border-opacity-40 shadow-md rounded-md container">
           <h1 class="py-2">Foto</h1>
-          <img src="" alt="" class="h-[260px] w-[360px] object-cover mx-auto" />
+          <img src="" alt="" class="h-[260px] w-[360px] rounded-md shadow-md border-2 p-2 object-cover mx-auto" />
         </div>
       </div>
 
@@ -189,7 +207,7 @@
       <div class="right-side md2:w-1/2">
         <div
           id="ringkasan-gizi"
-          class="p-2 w-full border-abu-tipis border-2 border-opacity-40 shadow-md rounded-md flex flex-col gap-2">
+          class="p-2 w-full border-abu-tipis border-2 mb-2 border-opacity-40 shadow-md rounded-md flex flex-col gap-2">
           <h1 class="py-2">Ringkasan Gizi</h1>
           <div
             id="energi"
@@ -198,7 +216,7 @@
               <img src="asset/energi.svg" class="w-[30px] h-[42px]" />
               <span class="text-sm font-bold">Energi</span>
             </div>
-            <div class="font-bold text-3xl py-4 text-center">111</div>
+            <div class="font-bold text-3xl py-4 text-center">0</div>
           </div>
           <div
             id="protein"
@@ -207,7 +225,7 @@
               <img src="asset/protein.png" class="w-[30px] h-[42px]" />
               <span class="text-sm font-bold">Protein</span>
             </div>
-            <div class="font-bold text-3xl py-4 text-center">111</div>
+            <div class="font-bold text-3xl py-4 text-center">0</div>
           </div>
           <div
             id="lemak"
@@ -216,7 +234,7 @@
               <img src="asset/lemak.svg" class="w-[30px] h-[42px]" />
               <span class="text-sm font-bold">Lemak</span>
             </div>
-            <div class="font-bold text-3xl py-4 text-center">111</div>
+            <div class="font-bold text-3xl py-4 text-center">0</div>
           </div>
           <div
             id="karbo"
@@ -225,7 +243,7 @@
               <img src="asset/karbo.svg" class="w-[30px] h-[42px]" />
               <span class="text-sm font-bold">Karbo</span>
             </div>
-            <div class="font-bold text-3xl py-4 text-center">111</div>
+            <div class="font-bold text-3xl py-4 text-center">0</div>
           </div>
         </div>
         <!-- gizi yang diunggulkan -->
@@ -253,6 +271,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
   </body>
 </html>
