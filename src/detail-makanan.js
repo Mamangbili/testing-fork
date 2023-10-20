@@ -1,7 +1,5 @@
 // bagian header dll
-const closeHambugerIcon = document.querySelector('#hamburger-menu i');
-const menuHamburger = document.getElementById("hamburger-menu");
-const hamburgerMenuIcon = document.querySelector("nav div img")
+
 const nutritionFullTableDOM = document.getElementById('nutrition-full-table')
 const conciseTableDOM = document.getElementById("ringkasan-gizi")
 
@@ -15,15 +13,6 @@ const favoritNo = document.getElementById('favorit-no')
 const mainDOM = document.getElementsByTagName('main')[0];
 mainDOM.style.display = 'none';
 
-
-// bagian animasi  
-hamburgerMenuIcon.addEventListener('click', () => {
-    menuHamburger.style.left = '0%';
-}
-)
-closeHambugerIcon.addEventListener('click', () => {
-    menuHamburger.style.left = '-100%';
-})
 
 favoritYes.addEventListener('click', function () {
     notifBerhasil.innerHTML = "Favorit berhasil dihapus"
@@ -94,11 +83,13 @@ function getRowConciseDOM(selectorRow, container) {
 }
 
 
-function renderTableFullNutrition(tableDataWithDOM) {
+function renderTableFullNutrition(tableDataWithDOM, namaMakanan) {
     for (const nutrient in tableDataWithDOM) {
         const value = tableDataWithDOM[nutrient].mutableValue
         const unit = tableDataWithDOM[nutrient].unit
         const akg = tableDataWithDOM[nutrient][nutrient.toString() + 'Akg']
+        const judulDOM = document.getElementById('judul')
+        judulDOM.innerHTML = namaMakanan
         tableDataWithDOM[nutrient].AKGDOM.innerHTML = (akg * 100).toFixed(2)
         tableDataWithDOM[nutrient].kandunganDOM.innerHTML = value.toFixed(2) + ' ' + unit
     }
@@ -156,27 +147,53 @@ function renderGiziUnggulan(giziTerbaikList) {
         const nomorUrut = containerRowsHeader.querySelectorAll('span')[0]
         const akg = containerRowsHeader.querySelectorAll('span')[1]
         const namaGizi = rowsUnggulan[index].querySelectorAll('span')[2]
-        console.log(index)
+
         nomorUrut.innerHTML = index + 1
         akg.innerHTML = (gizi.value[gizi.key + 'Akg'] * 100).toFixed(2) + '%'
         namaGizi.innerHTML = gizi.key
     })
 }
 
-async function main() {
+function updatePageDom(strerilDataWithDom, namaMakanan) {
+    const converterInput = document.querySelector('#converter > input')
+    if (!(parseInt(converterInput.value) > 0)) return
+
+    const sajian = document.querySelector("#nutrition-full-table > div > span")
+    beratMakanan = parseInt(converterInput.value)
+    sajian.innerHTML = 'per ' + beratMakanan + ' gram'
+    proporsiMakanan = beratMakanan / 100
+
+    multipliedNutrient(strerilDataWithDom, proporsiMakanan)
+    renderTableConcise(strerilDataWithDom)
+    renderTableFullNutrition(strerilDataWithDom, namaMakanan)
+}
+
+const filterPencarian = (list, keyword) => {
+    const result = list.filter((makanan) => {
+        const regex = new RegExp(keyword, "i");
+        if (makanan.namaMakanan.match(regex)) return true
+        else false
+    })
+    return result
+}
+
+async function main(judul) {
     const makanan_endpoint = 'https://652526aa67cfb1e59ce6bcdb.mockapi.io/makanan'
 
     const { data, fail } = await fetchingData(makanan_endpoint);
 
-    if (data) { mainDOM.style.display = 'flex'; console.log('berhasil memuat') }
-    else { console.log('gagal memuat') }
+    if (data) { mainDOM.style.display = 'flex' }
+    else { alert("gagal memuat silahkan reload") }
+
     const fotoDOM = document.querySelector('#foto > img')
-    const dataTampilan = data[0]
-    fotoDOM.src = dataTampilan.linkGambar
-    console.log('ano', dataTampilan.EnergiAkg)
+    const dataTampilan = filterPencarian(data, judul)[0]
+
+
+    if (!dataTampilan.linkGambar) fotoDOM.src = 'https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg'
+    else fotoDOM.src = dataTampilan.linkGambar
+
     const sterilData = createNewSterilizeResponse(dataTampilan)
 
-    console.log(dataTampilan.KarbAkg)
     //mutable sehingga bagian lain bisa akses
     const strerilDataWithDom = {
         Energi: {
@@ -242,11 +259,10 @@ async function main() {
             , ...getRowFullTableDOM(".Kalium > td", nutritionFullTableDOM)
         },
     }
-    console.log(strerilDataWithDom)
 
     const giziUnggulan = pickBestNutrion(strerilDataWithDom)
 
-    renderTableFullNutrition(strerilDataWithDom)
+    renderTableFullNutrition(strerilDataWithDom, dataTampilan.namaMakanan)
     renderTableConcise(strerilDataWithDom)
     renderGiziUnggulan(giziUnggulan)
 
@@ -257,21 +273,35 @@ async function main() {
     const buttonConverter = document.querySelector('#converter > button')
 
     buttonConverter.addEventListener('click', () => {
-        const converterInput = document.querySelector('#converter > input')
-        if (!(parseInt(converterInput.value) > 0)) return
 
-        const sajian = document.querySelector("#nutrition-full-table > div > span")
-        beratMakanan = parseInt(converterInput.value)
-        sajian.innerHTML = 'per ' + beratMakanan + ' gram'
-        proporsiMakanan = beratMakanan / 100
-
-        multipliedNutrient(strerilDataWithDom, proporsiMakanan)
-        renderTableConcise(strerilDataWithDom)
-        renderTableFullNutrition(strerilDataWithDom)
-        console.log(strerilDataWithDom)
-
-
+        updatePageDom(strerilDataWithDom, dataTampilan.namaMakanan)
     })
 
+    const jumlahInput = document.getElementById('jumlah-input')
+    jumlahInput.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            updatePageDom(strerilDataWithDom, dataTampilan.namaMakanan)
+        }
+    })
+
+
 }
-main()
+
+const inputBtn = document.getElementById('input-btn')
+const inputSearch = document.getElementById('input-search')
+
+inputSearch.addEventListener('keydown', function (event) {
+    if (event.key === "Enter") {
+        window.localStorage.setItem('keyword', this.value)
+        window.location.href = './makanan.html'
+    }
+})
+
+inputBtn.addEventListener('click', function (event) {
+    window.localStorage.setItem('keyword', inputSearch.value)
+    window.location.href = './makanan.html'
+})
+
+
+const judul = window.localStorage.getItem('keyword')
+main(judul)

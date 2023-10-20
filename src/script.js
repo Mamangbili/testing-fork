@@ -136,5 +136,6 @@ function submit(event) {
   }
 }
 
+window.localStorage.setItem('keyword', '')
 const form = document.getElementById("kesehatan-form");
 form.addEventListener("submit", submit);
