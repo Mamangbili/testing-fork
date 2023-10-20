@@ -2,7 +2,7 @@
 const createdCard = ({ linkGambar, Energi, Prot, Karb, Lemak, namaMakanan }) => {
   if (!linkGambar) linkGambar = 'https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg'
   const cardTemplate = `
-  <a href="/src/detail-makanan.html">
+  <a href="./detail-makanan.html">
   <div class=" max-w-sm ">
     <div
       class="flex p-2 h-full border-abu-tipis border-2 shadow-md sm:max-w-md">
