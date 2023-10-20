@@ -41,13 +41,17 @@ function scrapGiziLengkap(cheerioRootHTML) {
     const kanan = $(kotak).find(".nutrient.right.tRight")
     const kiri = $(kotak).find(".nutrient.left")
     const giziLengkap = {}
+    let giziAkgMaxRandom = 0.40
     $(kiri).each((i, each) => {
-
+        
+        const akgYgDipilih = (Math.random() * giziAkgMaxRandom) - (Math.random() * giziAkgMaxRandom)*0.3 
+        giziAkgMaxRandom -= akgYgDipilih
+        console.log(giziAkgMaxRandom)
         let property = $(each).text()
         property = property === '' ? 'EnergiInKal' : property
         property = property.replace(/ /g,'')
         const value = $(kanan).eq(i).text()
-
+        giziLengkap[property.toString()+'Akg'] = akgYgDipilih
         giziLengkap[property] = value
     })
     return giziLengkap
