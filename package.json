@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "watch-tailwind": "tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+    "watch-tailwind": "tailwindcss -i ./src/style/input.css -o ./src/style/output.css --watch"
   },
   "dependencies": {
     "autoprefixer": "^10.4.16",
