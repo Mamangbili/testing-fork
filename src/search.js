@@ -22,3 +22,24 @@ searchBtn.onclick = () => {
   searchBtn.classList.add("hide");
   cancelBtn.classList.add("show");
 };
+
+// Tombol search
+// const data = ["Apple", "Banana", "Orange", "Mango", "Grapes", "Pineapple"];
+
+// function search() {
+//   const searchInput = document
+//     .getElementById("search-input")
+//     .value.toLowerCase();
+//   const resultsList = document.getElementById("results-list");
+//   resultsList.innerHTML = "";
+
+//   const filteredData = data.filter((item) =>
+//     item.toLowerCase().includes(searchInput)
+//   );
+
+//   filteredData.forEach((item) => {
+//     const listItem = document.createElement("li");
+//     listItem.textContent = item;
+//     resultsList.appendChild(listItem);
+//   });
+// }
